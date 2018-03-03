@@ -5,13 +5,13 @@ Feature: User is able to convert area units
     When I click on Got it button
 
 
-  Scenario: User is able to dismiss help
-    Given I land on help popup
-    When I click on Got it button
-    Then I land on area screen
+#  Scenario: User is able to dismiss help
+#    Given I land on help popup
+#    When I click on Got it button
+#    Then I land on area screen
 
   Scenario: User is able to swap values
-    And I see "Sq Kilometre" in From header
+    Given I see "Sq Kilometre" in From header
     And I see "Sq Metre" in To header
     When I click on Swap button
     Then I see "Sq Metre" in From header

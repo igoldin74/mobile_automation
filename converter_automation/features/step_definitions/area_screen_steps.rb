@@ -10,20 +10,26 @@ Then(/^I land on area screen$/) do
   find_element(xpath: "//android.widget.TextView[@text='Area']").text
 end
 
-When(/^I click on Swap button$/) do
-  find_element(id: "fab").click
-end
-
-Then(/^I see "([^"]*)" in From header$/) do |value|
+Given(/^I see "([^"]*)" in From header$/) do |value|
   actual_value = find_element(id: "header_text_unit_from").text
   puts("Expected value is " + value)
   puts("Actual value is " + actual_value)
+  if actual_value == value
+    fail("Expected value #{value} should change to #{actual_value}")
+  end
 end
 
 And(/^I see "([^"]*)" in To header$/) do |value|
   actual_value = find_element(id: "header_text_unit_to").text
   puts("Expected value is " + value)
   puts("Actual value is " + actual_value)
+  if actual_value == value
+    fail("Expected value #{value} should change to #{actual_value}")
+  end
+end
+
+When(/^I click on Swap button$/) do
+  find_element(id: "fab").click
 end
 
 And(/^I click on Clear button$/) do
@@ -52,6 +58,7 @@ And(/^I press "([^"]*)" on soft keyboard$/) do |value|
     digit = Integer(key)
     press_keycode 7 + digit
   end
+
 end
 
 
