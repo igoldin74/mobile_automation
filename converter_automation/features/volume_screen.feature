@@ -7,7 +7,7 @@ Feature: User is able to convert Volume units
   @wip
   Scenario: User is able to call menu with swipe
     When I swipe in the menu
-    Then I see app menu
+    Then I see main app menu
 
 
 

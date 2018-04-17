@@ -1,5 +1,6 @@
 require "appium_lib"
 
+
 def caps
   {caps: {
       deviceName: "Name",
@@ -10,6 +11,7 @@ def caps
       newCommandTimeout: "3600"
   }}
 end
+
 
 Appium::Driver.new(caps, true)
 Appium.promote_appium_methods Object
